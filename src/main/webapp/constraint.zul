@@ -1,0 +1,6 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk>
+    <textbox constraint="${c:new('quickstart.validate.EvenNumberConstraint')}"/>
+    <textbox constraint="no empty" apply="quickstart.validate.ValidateComposer"/>
+    <intbox apply="quickstart.validate.YouthValidationComposer" onChange=""/>
+</zk>

@@ -1,0 +1,41 @@
+<zk xmlns:h="native" xmlns:ca="client/attribute">
+    <vlayout style="margin: 30px">
+        <zscript><![CDATA[
+Sessions.getCurrent().setAttribute("user", "天行者路克");
+        ]]></zscript>
+        <button onClick='System.out.println("除錯用")' label="測試"/>
+
+        <label value="${sessionScope.user} 你好"/>
+
+        <zscript><![CDATA[
+    String force = "願原力與你同在";
+    ]]></zscript>
+        <textbox value="${force}"/>
+
+        <button onClick='Messagebox.show(force)' label="絕地武士的祝福"/>
+
+
+        <button onClick='Messagebox.show("資料已送出")' label="送出"/>
+
+        <zscript><![CDATA[
+    public void costaRicaBlessing(){
+        Messagebox.show("pura vida");
+    }
+    ]]></zscript>
+        <button onClick='costaRicaBlessing()' label="哥斯大黎加的祝福"/>
+
+        <zscript><![CDATA[
+String firstname = "Anakin";
+String lastname = "Skywalker";
+    ]]></zscript>
+        ${'Hi, ' += firstname += ' ' += lastname}
+
+        <h:h1>混用 HTML</h:h1>
+        <h:div xmlns="native">
+            <h2>預設都是 HTML tag</h2>
+            <span>不需要加前綴</span>
+        </h:div>
+        <a ca:rel="alternative">client attribute</a>
+
+    </vlayout>
+</zk>

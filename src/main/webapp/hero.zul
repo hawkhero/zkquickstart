@@ -1,0 +1,27 @@
+<zk xmlns:h="native">
+    <div width="20%" apply="quickstart.hero.HeroController" style="margin: 0 auto">
+        <h:h3>復仇者英雄列表</h:h3>
+        <div style="margin: 5px 0">
+            <textbox id="newNameBox" hflex="1" style="margin-right:10px" constraint="no empty: 不能為空字串"/>
+            <button id="add" iconSclass="z-icon-plus"/>
+        </div>
+        <listbox id="heroBox" rows="5" emptyMessage="無資料" nonselectableTags="">
+            <listhead>
+                <listheader width="50px"/>
+                <listheader width="50%"/>
+                <listheader/>
+            </listhead>
+            <template name="model">
+                <listitem>
+                    <listcell label="${forEachStatus.index}"/>
+                    <listcell>
+                        <textbox inplace="true" value="${each.name}" width="100%" forward="onChange=heroBox.onChange"/>
+                    </listcell>
+                    <listcell style="text-align:right">
+                        <button iconSclass="z-icon-times" forward="heroBox.onDelete"/>
+                    </listcell>
+                </listitem>
+            </template>
+        </listbox>
+    </div>
+</zk>
