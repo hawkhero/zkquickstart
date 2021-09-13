@@ -1,0 +1,35 @@
+<zk xmlns:h="native">
+    <h:h2>靜態</h:h2>
+    <listbox multiple="true" checkmark="true">
+        <listhead >
+            <listheader label="name" sort="auto" />
+        </listhead>
+        <listitem>
+            <listcell label="Mary" />
+        </listitem>
+        <listitem>
+            <listcell label="John" />
+        </listitem>
+        <listitem>
+            <listcell label="Jane" />
+        </listitem>
+        <listitem>
+            <listcell label="Henry" />
+        </listitem>
+    </listbox>
+
+    <h:h2>動態</h:h2>
+    <zscript><![CDATA[
+    String[] names = {"Mary", "John", "Jane", "Henry"};
+    ListModelList model = new ListModelList(names);
+    model.setMultiple(true);
+    ]]></zscript>
+    <listbox model="${model}" checkmark="true">
+        <listhead >
+            <listheader label="name" sort="auto" />
+        </listhead>
+        <template name="model">
+            <listitem label="${each}"/>
+        </template>
+    </listbox>
+</zk>
