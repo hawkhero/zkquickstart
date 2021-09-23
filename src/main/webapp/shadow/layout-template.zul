@@ -1,0 +1,22 @@
+<zk>
+    <style>
+        .center {
+        width: 100px;
+        margin: 0px auto;
+        }
+        .center .z-label{
+        font-size: 32px;
+        }
+    </style>
+    <borderlayout height="100%">
+        <north size="20%" style="background-color:#5c5480">
+            <div sclass="center">header</div>
+        </north>
+        <center style="background-color:#738096">
+            <apply template="content"/>
+        </center>
+        <south size="5%" style="background-color:#5c5480">
+            <div sclass="center">footer</div>
+        </south>
+    </borderlayout>
+</zk>

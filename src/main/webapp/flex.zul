@@ -1,0 +1,41 @@
+<zk xmlns:h="native">
+    <style>
+        .z-label{
+            font-size: 30px;
+        }
+    </style>
+    <div sclass="box">
+        <span hflex="1" sclass="box">
+        hflex="1"
+        </span>
+        <span hflex="3" sclass="box">
+        hflex="3"
+        </span>
+    </div>
+    <separator height="50px"/>
+    <div height="200px" sclass="box">
+        <div vflex="30" sclass="box">
+            vflex="30"
+        </div>
+        <div vflex="70" sclass="box">
+            vflex="70"
+        </div>
+    </div>
+
+    <h:h1>最小尺寸</h:h1>
+    <div height="300px" sclass="box">
+        <div hflex="min" vflex="1" sclass="box" style="display:inline-block">
+            <div>sidebar</div>
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+        </div>
+        <div hflex="1" vflex="1" sclass="box" style="display:inline-block">content</div>
+    </div>
+
+    <separator height="50px"/>
+    <div><!--Wrong! The height is required since it is minimal height by default-->
+        <datebox/>
+        <div vflex="1" style="background: yellow"/><!--height will be zero since height not specified in parent div-->
+    </div>
+</zk>

@@ -1,4 +1,8 @@
 /* eliminate "margin collapse" if h1 is the first element in a zul */
+.z-page{
+    padding: 10px
+}
+
 h1{
     margin-top: 0px;
 }
@@ -6,4 +10,10 @@ h1{
 :focus {
     box-shadow: 0 0 3px 3px lightpink;
     background-color: lightyellow;
+}
+
+.box{
+    border: 2px solid skyblue;
+    border-radius: 3px;
+    padding: 5px 5px;
 }

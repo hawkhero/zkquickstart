@@ -1,0 +1,7 @@
+<zk>
+    <apply templateURI="layout-template.zul">
+        <template name="content">
+            <div sclass="center">本頁面內容</div>
+        </template>
+    </apply>
+</zk>

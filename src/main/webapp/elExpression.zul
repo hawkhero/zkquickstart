@@ -1,0 +1,26 @@
+<!--<?import org.zkoss.xel.fn.* ?>-->
+<zk xmlns:h="native">
+
+<h:h1>Resolving EL Variables</h:h1>
+<!-- self is an implicit object referring to the component itself -->
+<textbox id="tb" value="${self.parent.title}"/>
+<!-- tb, the ID of a textbox, is the object reference of the textbox component -->
+${tb.value}
+<!-- param is an implicit object   -->
+<button label="Enter" if="${not empty param.edit}"/>
+<!--<zscript><![CDATA[-->
+     Date now = new Date();
+<!--]]></zscript>-->
+<!-- now is a variable defined in zscript -->
+<datebox value="${now}"/>
+
+
+
+
+
+    <h:h1>Access Static Field and Method</h:h1>
+    if the referenced class is not imported, you need import directive <h:br/>
+    ${Math.sqrt(16)}<h:br/>
+    Current ZK version: ${Version.UID}
+
+</zk>

@@ -1,0 +1,28 @@
+<zk>
+    <apply template="one-field"/>
+    <template name="one-field">
+        <textbox/><button label="送出" style="margin-left: 5px"/>
+    </template>
+
+    <apply template="one-field2" hint="請輸入：" label="OK"/>
+    <template name="one-field2">
+        ${hint}<textbox/><button label="${label}" style="margin-left: 5px"/>
+    </template>
+
+    <div  style="width: 50%" apply="quickstart.shadow.ProfileEditorComposer">
+        <button label="Edit"/>
+        <vlayout style="border: solid 2px; border-radius:5px; width: 150px; padding:5px; margin: 5px">
+            <apply id="profile" template="normal" hero="${hero}" dynamicValue="true"/>
+        </vlayout>
+    </div>
+    <template name="normal">
+        <label value="${hero.id}"/>
+        <label value="${hero.name}"/>
+        <label value="${hero.age}"/>
+    </template>
+    <template name="edit">
+        <label value="${hero.id}"/>
+        <textbox id="nameBox" value="${hero.name}" width="100%"/>
+        <intbox id="ageBox" value="${hero.age}"/>
+    </template>
+</zk>

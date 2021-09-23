@@ -1,0 +1,12 @@
+<zk>
+    <hlayout style="padding: 20px" height="100%">
+        <navbar orient="vertical">
+            <navitem label="page1"/>
+            <navitem label="page2"/>
+            <navitem label="page3"/>
+        </navbar>
+        <div hflex="1" height="100%">
+            <apply/>
+        </div>
+    </hlayout>
+</zk>

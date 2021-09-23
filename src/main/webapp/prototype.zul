@@ -1,5 +1,20 @@
 <zk xmlns:h="native" xmlns:ca="client/attribute">
     <vlayout style="margin: 30px">
+        <!-- self is an implicit object referring to the component itself -->
+        <window title="EL範例">
+            <textbox id="tb" value="${self.parent.title}"/>
+            ${tb.value}
+        </window>
+
+        <!-- param is an implicit object   -->
+        <button label="Enter" if="${not empty param.edit}"/>
+
+        <zscript><![CDATA[
+     Date now = new Date();
+]]></zscript>
+        <!-- now is a variable defined in zscript -->
+        <datebox value="${now}"/>
+
         <zscript><![CDATA[
 Sessions.getCurrent().setAttribute("user", "天行者路克");
         ]]></zscript>
@@ -24,6 +39,20 @@ Sessions.getCurrent().setAttribute("user", "天行者路克");
     ]]></zscript>
         <button onClick='costaRicaBlessing()' label="哥斯大黎加的祝福"/>
 
+        <h:h1>用 ID 操作元件</h:h1>
+        <intbox id="box"/>
+        <zscript><![CDATA[
+        box.setValue(18);
+        ]]>
+        </zscript>
+
+        <window title="space owner">
+            <button id="submit" label="送出"/>
+        </window>
+        <window title="space owner">
+            <button id="submit" label="送出"/>
+        </window>
+        <h:h1>EL</h:h1>
         <zscript><![CDATA[
 String firstname = "Anakin";
 String lastname = "Skywalker";
@@ -37,5 +66,18 @@ String lastname = "Skywalker";
         </h:div>
         <a ca:rel="alternative">client attribute</a>
 
+        <div id="parent">
+            <zscript><![CDATA[
+    //the smaller scope (lower one) can shadow the upper one
+    application.setAttribute("myname", "in application");
+    session.setAttribute("myname", "in session");
+    desktop.setAttribute("myname", "in desktop");
+    page.setAttribute("myname", "in page");
+    parent.setAttribute("myname", "in component");
+    execution.setAttribute("myname", "in execution");
+    ]]></zscript>
+            解析結果:
+            <label style="font-weight: bold" value="${myname}"/>
+        </div>
     </vlayout>
 </zk>

@@ -25,7 +25,7 @@ public class HeroController extends SelectorComposer {
     @Listen("onClick = #add")
     public void add(){
         heroList.add(HeroService.create(newNameBox.getValue()));
-        newNameBox.setValue("");
+        newNameBox.setRawValue("");
     }
 
     @Listen("onDelete = #heroBox")

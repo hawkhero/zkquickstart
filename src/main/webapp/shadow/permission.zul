@@ -1,0 +1,25 @@
+<zk>
+    <div apply="quickstart.shadow.PermissionComposer" sclass="box">
+        <checkbox label="toggle permission" style="margin-bottom: 30px"/>
+        <apply id="permission" dynamicValue="true">
+            <if test="${permitted}">
+                <div>權限已被核准</div>
+                <button label="特殊按鈕" style="background-color:orange"/>
+            </if>
+        </apply>
+    </div>
+    <div sclass="box">
+        參數決定輸入元件的類別
+        <choose>
+            <when test="${param.type eq 'string'}">
+                <textbox/>
+            </when>
+            <when test="${param.type eq 'date'}">
+                <datebox/>
+            </when>
+            <otherwise>
+                <intbox/>
+            </otherwise>
+        </choose>
+    </div>
+</zk>
