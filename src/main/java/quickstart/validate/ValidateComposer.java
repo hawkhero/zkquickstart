@@ -12,7 +12,7 @@ public class ValidateComposer implements Composer {
             Textbox box = (Textbox) component;
             component.addEventListener(Events.ON_CHANGE, event -> {
                 if (box.getValue().length() <= 1) {
-                    throw new WrongValueException("至少要超過一個字");
+                    throw new WrongValueException(box, "至少要超過一個字");
                 }
             });
         }

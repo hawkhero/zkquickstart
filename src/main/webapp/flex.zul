@@ -12,7 +12,7 @@
         hflex="3"
         </span>
     </div>
-    <separator height="50px"/>
+    <separator height="50px"/>ㄆ
     <div height="200px" sclass="box">
         <div vflex="30" sclass="box">
             vflex="30"
@@ -34,8 +34,16 @@
     </div>
 
     <separator height="50px"/>
-    <div><!--Wrong! The height is required since it is minimal height by default-->
+    <h:h1>Incorrect Usage</h:h1>
+    <div><!--需要指定高度，因為預設為最小高度-->
         <datebox/>
-        <div vflex="1" style="background: yellow"/><!--height will be zero since height not specified in parent div-->
+        <div vflex="1" style="background: yellow">
+        <!--高度為0-->
+        </div>
     </div>
+
+    <vlayout hflex="min" height="30px">
+        <div hflex="1" vflex="1" style="background: yellow">zero width</div>
+    </vlayout>
+
 </zk>
