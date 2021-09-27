@@ -1,0 +1,85 @@
+<zk xmlns:n="native">
+    <n:h1>拖放整列調整上下順序</n:h1>
+    <listbox width="40%" apply="quickstart.DragDropComposer">
+        <listhead>
+            <listheader label="Country/Area"/>
+            <listheader align="right" label="Visits"/>
+            <listheader align="right" label="%"/>
+        </listhead>
+        <listitem draggable="true" droppable="true" >
+            <listcell label="United States"/>
+            <listcell label="5,093"/>
+            <listcell label="19.39%"/>
+        </listitem>
+        <listitem draggable="true" droppable="true" >
+            <listcell label="China"/>
+            <listcell label="4,274"/>
+            <listcell label="16.27%"/>
+        </listitem>
+        <listitem draggable="true" droppable="true" >
+            <listcell label="France"/>
+            <listcell label="1,892"/>
+            <listcell label="7.20%"/>
+        </listitem>
+        <listitem draggable="true" droppable="true" >
+            <listcell label="Germany"/>
+            <listcell label="1,846"/>
+            <listcell label="7.03%"/>
+        </listitem>
+        <listitem draggable="true" droppable="true" >
+            <listcell label="(other)"/>
+            <listcell label="13,162"/>
+            <listcell label="50.01%"/>
+        </listitem>
+        <listfoot>
+            <listfooter label="Total 132"/>
+            <listfooter label="26,267"/>
+            <listfooter label="100.00%"/>
+        </listfoot>
+    </listbox>
+
+    <n:h1>一次拖放多個項目</n:h1>
+    <listbox multiple="true" width="50%">
+        <listitem draggable="true" label="Matthew"/>
+        <listitem draggable="true" label="Mark"/>
+        <listitem draggable="true" label="Lucas"/>
+        <listitem draggable="true" label="John"/>
+    </listbox>
+    <div droppable="true" sclass="box" height="150px" onDrop="onDrop(event)">
+        丟到此區
+    </div>
+    <zscript><![CDATA[
+    public void onDrop(DropEvent evt) {
+        Listitem li = (Listitem)evt.getDragged();
+        if (li.isSelected()) {
+            Set selected = ((Listitem)evt.getDragged()).getListbox().getSelectedItems();
+            //處理整批
+        } else {
+            li.setSelected(true);
+           //處理單一個
+        }
+
+        Clients.showNotification("select " + selected.size());
+    }
+    ]]></zscript>
+
+    <n:h1>區隔可拖放的目標</n:h1>
+    <listbox multiple="true" width="50%">
+        <listitem draggable="email" label="Email 1"/>
+        <listitem draggable="email" label="Email 2"/>
+        <listitem draggable="contact" label="Contact 1"/>
+        <listitem draggable="contact" label="Contact 2"/>
+    </listbox>
+
+    <div sclass="box" height="50px" droppable="email" onDrop="accept(event)" >
+        只接受 email
+    </div>
+    <div sclass="box" height="50px" droppable="contact" onDrop="accept(event)">
+        只接受 contact
+    </div>
+    <zscript><![CDATA[
+    public void accept(DropEvent e){
+        Clients.showNotification("accept " + ((Listitem)e.getDragged()).getLabel());
+    }
+    ]]></zscript>
+</zk>
