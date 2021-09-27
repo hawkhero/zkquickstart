@@ -1,0 +1,23 @@
+<zk>
+    <hlayout height="100%" apply="quickstart.nav.TemplateNavComposer">
+        <navbar orient="vertical" width="200px" >
+            <navitem label="財務" iconSclass="z-icon-book" selected="true">
+                <custom-attributes name="finance"/>
+            </navitem>
+            <navitem label="管理" iconSclass="z-icon-user">
+                <custom-attributes name="management"/>
+            </navitem>
+            <navitem label="研究" iconSclass="z-icon-lightbulb-o">
+                <custom-attributes name="research"/>
+            </navitem>
+        </navbar>
+        <div sclass="content" hflex="1" vflex="1" style="padding: 20px; border: 2px solid teal;">
+            <apply id="content" templateURI="finance.zul" dynamicValue="true"/>
+        </div>
+    </hlayout>
+    <style>
+        .content .z-label{
+            font-size: 40px;
+        }
+    </style>
+</zk>
