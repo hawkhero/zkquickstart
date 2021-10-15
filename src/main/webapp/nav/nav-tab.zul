@@ -13,15 +13,15 @@
         </navbar>
         <div sclass="content" hflex="1" vflex="1"
              style="padding: 20px; border: 2px solid teal;">
-            <tabbox vflex="1">
+            <tabbox id="box" vflex="1">
                 <template name="model:tab">
-                    <tab iconSclass="${each.iconClass}" closable="true">
+                    <tab iconSclass="${each.iconClass}" closable="true" forward="onClose=box.onClose(${each})">
                         ${each.name}
                     </tab>
                 </template>
                 <template name="model:tabpanel">
                     <tabpanel>
-                            ${each.name}
+                        ${each.name}
                     </tabpanel>
                 </template>
             </tabbox>

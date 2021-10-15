@@ -1,0 +1,13 @@
+<zk>
+    <window title="Event Queue 範例" border="normal"
+            apply="quickstart.LongOpQueueController">
+        <html><![CDATA[
+    <ul>
+    <li>按下按鈕會啟動一個很耗時的動作</li>
+    <li>在這個耗時的動作期間，你仍可以跟其他元件互動，取得伺服器回應</li>
+    </ul>
+    ]]></html>
+        <button label="非同步耗時動作"/>
+        <vlayout id="info" style="border:3px solid grey; width: fit-content; margin: 10px 0; padding: 5px"/>
+    </window>
+</zk>

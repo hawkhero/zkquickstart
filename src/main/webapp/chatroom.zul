@@ -1,0 +1,24 @@
+<window title="Chat" border="normal">
+    <zscript><![CDATA[
+	import org.zkoss.zk.ui.event.*;
+	EventQueue queue = EventQueues.lookup("chat", EventQueues.APPLICATION, true);
+	queue.subscribe(new EventListener() {
+		public void onEvent(Event evt) {
+			new Label(evt.getData()).setParent(messageHistory);
+		}
+	});
+
+	String userName = "user " + session.getNativeSession().getId().substring(6, 10);
+	public void post(Textbox tb) {
+		String text = tb.value;
+		if (text.length() > 0) {
+			tb.value = "";
+			queue.publish(new Event("onChat", null, userName +": " + text));
+		}
+	}
+	]]></zscript>
+
+    <textbox onOK="post(self)" onChange="post(self)" placeholder="寫入你的訊息"/>
+    <separator bar="true"/>
+    <vlayout id="messageHistory"/>
+</window>

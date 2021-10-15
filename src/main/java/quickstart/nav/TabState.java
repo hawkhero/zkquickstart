@@ -1,6 +1,6 @@
 package quickstart.nav;
 
-public class TabState {
+public class TabState implements Cloneable {
     private String iconClass;
     private String name;
 
@@ -23,5 +23,10 @@ public class TabState {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

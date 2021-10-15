@@ -15,7 +15,7 @@
         <center style="background-color:#738096">
             <apply template="content"/>
         </center>
-        <south size="5%" style="background-color:#5c5480">
+        <south size="10%" style="background-color:#5c5480">
             <div sclass="center">footer</div>
         </south>
     </borderlayout>

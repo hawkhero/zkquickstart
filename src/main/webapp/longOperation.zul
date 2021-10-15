@@ -1,0 +1,32 @@
+<zk>
+    <button label="耗時動作" onClick="doLongOperation()"/>
+    <window id="win" width="200px" title="Echo Event 範例" border="normal">
+        <button label="送出" autodisable="self" >
+            <attribute name="onClick">
+                //Clients.showBusy("執行中...");
+                self.addSclass("busy");
+                self.setLabel("進行中...");
+                Events.echoEvent("onLongOperation", self, null); //送出一個自訂 echo event
+            </attribute>
+            <attribute name="onLongOperation">
+                //Clients.clearBusy();
+                doLongOperation(); //take long to execute
+                self.removeSclass("busy");
+                self.setLabel("送出");
+            </attribute>
+        </button>
+    </window>
+    <zscript><![CDATA[
+public doLongOperation(){
+    org.zkoss.lang.Threads.sleep(3000); //模擬一個耗時的動作
+}
+    ]]></zscript>
+    <style>
+        .busy{
+            background-color: orange;
+        }
+    </style>
+    <script defer="true"><![CDATA[
+    msgzk.PLEASE_WAIT = "進行中";
+    ]]></script>
+</zk>

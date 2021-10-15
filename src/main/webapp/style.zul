@@ -1,0 +1,28 @@
+<?link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"?>
+<zk xmlns:h="native">
+    <h:h1>style</h:h1>
+    <button style="font-size: 20px" label="大字體"/>
+    <h:h1>sclass</h:h1>
+    <button sclass="btn-primary" label="primary"/>
+    <button sclass="btn-success" label="success"/>
+    <button sclass="btn-warning" label="warning"/>
+    <h:h1>zclass</h:h1>
+    <button zclass="btn btn-outline-danger btn-block" label="danger"/>
+    <window title="my window" border="normal">
+
+    </window>
+    <window title="my custom window" zclass="dialog" border="normal">
+    </window>
+    <h:h1>所有元件</h:h1>
+    <style>
+        .z-groupbox .z-checkbox-content{
+            font-size: 30px;
+            color: skyblue;
+        }
+    </style>
+    <groupbox title="絕地武士">
+        <checkbox label="天行者路克"/>
+        <checkbox label="歐比王"/>
+        <checkbox label="尤達"/>
+    </groupbox>
+</zk>

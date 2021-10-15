@@ -4,11 +4,13 @@
         <textbox/><button label="送出" style="margin-left: 5px"/>
     </template>
 
+    <separator height="20px"/>
     <apply template="one-field2" hint="請輸入：" label="OK"/>
     <template name="one-field2">
         ${hint}<textbox/><button label="${label}" style="margin-left: 5px"/>
     </template>
 
+    <separator height="20px"/>
     <div  style="width: 50%" apply="quickstart.shadow.ProfileEditorComposer">
         <button label="Edit"/>
         <vlayout style="border: solid 2px; border-radius:5px; width: 150px; padding:5px; margin: 5px">

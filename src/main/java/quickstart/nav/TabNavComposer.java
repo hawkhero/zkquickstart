@@ -35,6 +35,16 @@ public class TabNavComposer extends SelectorComposer {
     }
 
     public void addTab(String pageName){
-        tabModel.add(tabStates.get(pageName));
+        try {
+            tabModel.add((TabState) tabStates.get(pageName).clone());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Listen("onClose = #box")
+    public void closeTab(ForwardEvent event){
+        TabState tabState = (TabState) event.getData();
+        tabModel.remove(tabState);
     }
 }
